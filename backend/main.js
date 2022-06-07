@@ -50,10 +50,10 @@ app.post("/upload", async (req, res) => {
     return;
   }
   // wait for the process to complete before taking a new job
-  if(db.get('status') === "Processing"){
-    res.send("Please wait");
-    return;
-  }
+  // if(db.get('status') === "Processing"){
+  //   res.send("Please wait");
+  //   return;
+  // }
  
  
     // The name of the input field (i.e. "file") is used to retrieve the uploaded file

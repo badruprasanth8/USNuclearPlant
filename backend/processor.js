@@ -29,7 +29,7 @@ chokidar.watch(UploadedFiles).on('add',async filePath => {
         `[${new Date().toLocaleString()}] ${filePath} has been added.`
       );
       //lock the session to avoid race
-      db.set('status', 'Processing');
+     // db.set('status', 'Processing');
 
 
       // Read content of new file

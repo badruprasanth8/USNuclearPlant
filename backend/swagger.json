@@ -13,7 +13,7 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "13.233.125.128:3000",
+  "host": "43.204.205.14:3000",
   "basePath": "/",
   "tags": [
     {
@@ -32,7 +32,7 @@
         ],
         "summary": "Upload new data to the store",
         "description": "",
-        "operationId": "addPet",
+        "operationId": "uploadNuclearData",
         "consumes": [
           "multipart/form-data",
           "application/x-www-form-urlencoded",
