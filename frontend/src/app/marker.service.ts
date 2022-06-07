@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import * as L from 'leaflet';
 import { PopupService } from './popup.service';
+import {AppSettings} from './api.settings';
 
 
 
@@ -11,7 +12,7 @@ import { PopupService } from './popup.service';
   providedIn: 'root'
 })
 export class MarkerService {
-  capitals: string = 'http://localhost:3000/getGeoData';
+  capitals: string = AppSettings.API_ENDPOINT;
  //capitals: string = '/assets/data/usa-capitals.geojson';
 
   constructor(private http: HttpClient,

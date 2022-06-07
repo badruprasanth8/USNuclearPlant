@@ -1,6 +1,10 @@
 {
-    "/api": {
+    "/doc": {
     "target": "http://localhost:3000",
     "secure": false
-    }
+    },
+    "/api": {
+        "target": "http://13.233.125.128:3000",
+        "secure": false
+        }
 }
