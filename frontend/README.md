@@ -4,7 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:8081/`. The application will automatically reload if you change any of the source files.
+
 
 ## Code scaffolding
 
@@ -13,6 +14,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+To Run backend  `npm i` and `pm2 start process.json`  , backend runs in `3000` port 
+
+To Run frontend `npm i` and `pm2 start "ng serve --host 0.0.0.0"` , front end runs in `8081` port
+
+To Restart all services `pm2 restart all`
 
 ## Running unit tests
 
