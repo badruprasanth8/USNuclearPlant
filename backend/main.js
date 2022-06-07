@@ -5,18 +5,20 @@ const swaggerDocument = require('./swagger.json');
 const {expressjwt: jwt} = require('express-jwt');
 const fs = require('fs');
 const cors = require('cors');
+const JSONdb = require('simple-json-db');
+const db = new JSONdb(__dirname + "\\resources\\static\\assets\\db.json");
+
 
 const {excelFilter} = require("./middleware/upload");
 
 const fileupload = require("express-fileupload");
+
 app.use(fileupload());
 const jwks = require('jwks-rsa');
 const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
-
-
 const jwtCheck = jwt({
       secret: jwks.expressJwtSecret({
           cache: true,
@@ -47,8 +49,11 @@ app.post("/upload", async (req, res) => {
     res.send("File was not found");
     return;
   }
-
   // wait for the process to complete before taking a new job
+  if(db.get('status') === "Processing"){
+    res.send("Please wait");
+    return;
+  }
  
  
     // The name of the input field (i.e. "file") is used to retrieve the uploaded file

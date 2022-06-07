@@ -4,13 +4,17 @@ const fsExtra = require('fs-extra');
 const GeoJSON = require('geojson');
 const _ = require('underscore');
 
+
+
 let TotalNuclear=1 ;
 
-const stateabbr = require("./utility/utility");
+const {stateabbr} = require("./utility/utility");
 
 const UploadedFiles =   __dirname + "\\resources\\static\\assets\\uploads";
 const geoJson =   __dirname + "\\resources\\static\\assets\\geojson\\data.geojson";
 const reader = require('xlsx');
+const JSONdb = require('simple-json-db');
+const db = new JSONdb(__dirname + "\\resources\\static\\assets\\db.json");
 let key = 'Plant primary fuel';
 let searchTerm = 'NUC';
 
@@ -25,7 +29,7 @@ chokidar.watch(UploadedFiles).on('add',async filePath => {
         `[${new Date().toLocaleString()}] ${filePath} has been added.`
       );
       //lock the session to avoid race
-      
+      db.set('status', 'Processing');
 
 
       // Read content of new file
@@ -33,6 +37,7 @@ chokidar.watch(UploadedFiles).on('add',async filePath => {
       await fsExtra.writeJson(geoJson, fileData);
       //console.log(JSON.stringify(fileData));
       await fsExtra.unlink(filePath);
+      db.set('status', 'Finished');
       console.log(
         `[${new Date().toLocaleString()}] ${filePath} has been removed.`
       );

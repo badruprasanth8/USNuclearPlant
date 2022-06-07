@@ -32,7 +32,6 @@ export class MarkerService {
 
     this.http.get<any>(this.capitals).subscribe((res: any) => {
       for (const c of res.features) {
-        console.log(c);
         const lon = c.geometry.coordinates[0];
         const lat = c.geometry.coordinates[1];
         const marker = L.marker([lat, lon]);
@@ -52,6 +51,7 @@ export class MarkerService {
         const circle = L.circleMarker([lat, lon],{ 
           radius: MarkerService.scaledRadius(c.properties.PercentForState, maxPop)
         });
+        circle.setStyle({color: 'red'});
         circle.bindPopup(this.popupService.makeCapitalPopup(c.properties));
         
         circle.addTo(map);

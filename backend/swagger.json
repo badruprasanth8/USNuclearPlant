@@ -13,8 +13,8 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "localhost:4200",
-  "basePath": "/v2",
+  "host": "13.233.125.128:3000",
+  "basePath": "/",
   "tags": [
     {
       "name": "upload",
@@ -22,7 +22,6 @@
     }
   ],
   "schemes": [
-    "https",
     "http"
   ],
   "paths": {

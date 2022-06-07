@@ -58,10 +58,14 @@
             "styles": [
               "./node_modules/leaflet/dist/leaflet.css",
               "./node_modules/leaflet-search/dist/leaflet-search.min.css",
+              "./node_modules/leaflet-html-legend/dist/L.Control.HtmlLegend.css",
+              "./node_modules/leaflet-legend/leaflet-legend.css",
               "src/styles.css"
             ],
             "scripts": [
-              "./node_modules/leaflet-search/dist/leaflet-search.min.js"
+              "./node_modules/leaflet-search/dist/leaflet-search.min.js",
+              "./node_modules/leaflet-html-legend/dist/L.Control.HtmlLegend.js",
+              "./node_modules/leaflet-legend/leaflet-legend.js"
             ]
           },
           "configurations": {
