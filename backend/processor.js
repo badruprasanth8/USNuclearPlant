@@ -3,8 +3,6 @@ require('log-timestamp');
 const fsExtra = require('fs-extra');
 const GeoJSON = require('geojson');
 const _ = require('underscore');
-const KVdb = require('kvdb.io');
-const bucket = KVdb.bucket('Pu9kqDqFXji6tvwa7YkKMA', 'irksomeduffer') // access token arg optional
 
 let TotalNuclear=1 ;
 
@@ -27,7 +25,7 @@ chokidar.watch(UploadedFiles).on('add',async filePath => {
         `[${new Date().toLocaleString()}] ${filePath} has been added.`
       );
       //lock the session to avoid race
-      await bucket.set('excel', 'Processing');
+      
 
 
       // Read content of new file

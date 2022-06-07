@@ -109,6 +109,9 @@
               "proxyConfig": "./proxy.conf.json"
             }
           },
+          "options": {
+            "port": 8081
+        },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {

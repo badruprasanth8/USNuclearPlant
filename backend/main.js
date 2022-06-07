@@ -5,7 +5,6 @@ const swaggerDocument = require('./swagger.json');
 const {expressjwt: jwt} = require('express-jwt');
 const fs = require('fs');
 const cors = require('cors');
-const KVdb = require('kvdb.io');
 
 const {excelFilter} = require("./middleware/upload");
 
@@ -30,8 +29,6 @@ const jwtCheck = jwt({
     algorithms: ['RS256']
 });
 
-const bucket = KVdb.bucket('Pu9kqDqFXji6tvwa7YkKMA', 'irksomeduffer') // access token arg optional
-
 
 app.use(jwtCheck);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
@@ -48,10 +45,9 @@ app.post("/upload", async (req, res) => {
     res.send("File was not found");
     return;
   }
-  if(await bucket.get('excel') == "Processing"){
-    res.send("Please wait");
-    return;
-  }
+
+  // wait for the process to complete before taking a new job
+ 
  
     // The name of the input field (i.e. "file") is used to retrieve the uploaded file
     data = req.files.data;
