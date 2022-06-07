@@ -29,8 +29,10 @@ const jwtCheck = jwt({
     algorithms: ['RS256']
 });
 
+//TODO: Use JWT client credentials 
+//app.use(jwtCheck);
 
-app.use(jwtCheck);
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/getGeoData', (req, res) => {
